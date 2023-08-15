@@ -94,7 +94,7 @@ echo(x,y,z): {
     print(x + ", " + y + ", " + z)
 };
 
-// word vor 'main' ausgeführt, initialisiert konstanten
+// wird vor 'main' ausgeführt, initialisiert Konstanten
 init: {
     $ID_COMPUTER$ = "..."
 }</code></pre>
@@ -154,18 +154,116 @@ main: {
     shell("pastebin","get","...")
     
     // user-input
-    x=input("text:")
+    x = input("text:")
     
     // Konvertierung von text in Zahl
     tonumber(x)
 
     // splitten eines Texts
-    x=splitText("1,2,3",",") // Ergebnis ist ["1","2","3"]
-    a,b,c=x // Auflösen des Arrays
-    
+    x = splitText("1,2,3", ",") // Ergebnis ist ["1","2","3"]
+    a, b, c = x // Auflösen des Arrays
 }</code></pre>
 
+# Turti-Bibliotheken
 
+Turti-Bibliotheken erweitern die Sprache um eine Menge an Funktionen.
+Zum Beispiel fügt die *smartGPS*-Bibliothek (iT4NKZfx) die Funktion *moveTo(...)* hinzu.
 
+Die folgende Bibliothek definiert eine Funktion *test()*, die den übergebenen wert auf der Konsole ausgibt:
+```lua
+local api = {}
 
+function api.test(value)
+  print(value)
+end
 
+return {
+  name = "testBibliothek", // name der Bibliothek
+  api = api // Funktions-Definition
+}
+</code></pre>
+
+Benutzt werden kann die Bibliothek folgendermaßen:
+<pre><code>#import: iT4NKZfx; // Bibliothek auf Pastebin
+
+main:{
+  test("Hu")
+}
+```
+Zugehörige Ausgabe auf der Konsole: <code>Hu</code> 
+
+## Speichern von Daten in Bibliotheken
+Daten, die außerhalb von Funktionen verwendet werden, dürfen in Turti-Bibliotheken *nicht* in globalen variablen gespeichert werden.
+
+Stattdessen wird ein *storage*-Objekt verwendet:
+```lua
+local api = {}
+local storage
+local save
+
+function api.setValue(value)
+  storage.value = value
+  save() -- Speichern der Daten des Storage (sollte nach Änderungen aufgerufen werden)
+end
+
+function api.getValue(value)
+  return storage.value
+end
+
+return {
+  name = "testBibliothek", -- name der Bibliothek
+  api = api, -- Funktions-Definition
+  onInitStorage = function(_storage, _save) -- Initialisieren des Storage
+    storage = _storage
+    save = _save
+  end
+}
+```
+
+Die Daten bleiben während der Ausführung des Programms im Storage erhalten, auch wenn der Computer oder das Programm abstürzen sollte. Allerdings werden die Daten gelöscht, wenn das Programm erfolgreich endet.
+
+## Speichern von Daten über mehrere Ausführungen des Programms hinaus
+
+Der *persistentStorage* speichert Daten permanent auf dem Computer / der Turtle und wird wie der normale Bibliotheks-*storage* verwendet:
+
+```lua
+local api = {}
+local storage
+local save
+local persistentStorage
+local persistentSave
+
+-- Wert innerhalb der Laufzeit speichern
+function api.setValue(value)
+  storage.value = value
+  save()
+end
+
+function api.getValue(value)
+  return storage.value
+end
+
+-- Wert permanent speichern
+function api.setValuePersistent(value)
+  persistentStorage.value = value
+  persistentSave()
+end
+
+function api.getValuePersistent(value)
+  return persistentStorage.value
+end
+
+return {
+  name = "testBibliothek", -- name der Bibliothek
+  api = api, -- Funktions-Definition
+  onInitStorage = function(_storage, _save) -- Initialisieren des Storage
+    storage = _storage
+    save = _save
+  end,
+  onInitPersistentStorage = function(_pStorage, _pSave) -- Initialisieren des persistent Storage
+    persistentStorage = _pStorage
+    persistentSave = _pSave
+  end
+}
+```
+Natürlich muss nicht zum Speichern jedes Werts eine Funktion angelegt werden, die Daten der storages können beliebig oft verändert werden. Nur sollte nach den Änderungen ein *save()* - / *persistentSave()* - Aufruf folgen.
