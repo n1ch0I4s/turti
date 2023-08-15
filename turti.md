@@ -1,0 +1,171 @@
+# Basics
+
+# Was ist ein Turti-Programm?
+
+- Ein Turti-Programm wird dauerhaft auf einer Turtle installiert und bei jedem start automatisch ausgeführt.
+- Stürtzt die Turtle ab (durch z.B. Server-Neustart / Fahren in einen nicht geladenen Junk), wird das Programm beim
+  Neustart **fortgeführt** und beginnt **nicht** von neuem.
+- Turti-Programme werden in der Sprache [Turti](#Turti) geschrieben
+
+# Installation eines Turti-Programms
+
+Beispiel installations-Command für das Programm [Holla](#holla):
+> pastebin run FauBfvYe svdv6kJJ
+
+- FauBfvYe: Turti-Installer, bleibt immer gleich
+- svdv6kJJ Holla-Programm auf pastebin (für neues Programm einfach anpassen)
+
+Wichtig: Das Programm muss nur **einmal installieren** und wird dann **bei jedem Neustart** von pastebin heruntergeladen
+und **ausgeführt**
+
+# Turti
+
+## Holla
+
+Das Holla-Programmbeispiel fungiert als Hello-World Programm.
+
+<pre><code>main: {
+    print("Holla!")
+}</code></pre>
+
+## Syntax
+
+<pre><code>
+// Kommentar mit '//'
+/*
+    Block-Kommentar mit '/**/'
+*/
+
+// Jedes Programm in Turti besteht aus mindestens einem Funktions-Block, der den Hauptcode enthält:
+main: {
+    // Variablendeklaration:
+    i = 1;
+    b = true;
+    s = "huihuihui";
+    
+    // if
+    if (x < 5) {
+        ...    
+    }; //  (Semikolon nach jedem Statement!)
+
+    // if else
+    if (x < 5) {
+        ...    
+    } else if (x < 7) {
+        ...
+    } else {
+        ...
+    };
+
+    // while
+    while (true) {
+        ...    
+    };
+    
+    // for
+    for (x=0; x<5; x=x+1) {
+        ...
+    };
+
+    // Boolesche Operationen
+    x = y && true || a
+
+    // Arithmetische Operationen
+    x = y + 2 - 3
+
+    // Vergleiche
+    x = y >= 3
+    x = y <= 3
+    x = y == 3
+    x = y > 3
+    x = y < 3
+    x = y != 3
+
+    // Globale Konstanten (verfügbar in allen Funktionen)
+    $TYPE$ = "hui"    
+    x = $TYPE$
+
+    // Funktionsaufruf
+    echo(1, 2, 3)
+}; // Semikolon auch nach Funktionen
+
+// Funktion
+echo(x,y,z): {
+    print(x + ", " + y + ", " + z)
+};
+
+// word vor 'main' ausgeführt, initialisiert konstanten
+init: {
+    $ID_COMPUTER$ = "..."
+}</code></pre>
+
+## Standard-Bibliothek
+
+Optionale argumente sind mit [] gekennzeichnet
+<pre><code>#import: iT4NKZfx; // importieren der GPS-Bibliothek
+
+main: {
+    // Print 
+    print("hu")
+
+    // Bewegung (Blöcke und Entities auf dem Weg werden entfernt)
+    mvFwd([x:int]) 
+    mvBack([x:int])
+    mvUp([x:int])
+    mvDown([x:int])
+    left([x:int])
+    right([x:int])
+    
+    // Blöcke abbauen / platzieren
+    dig(slot:int, [item:string]) // item gibt das erwartete item an (wenn angegeben stellt die Turtle sicher, dass der Slot nur items dieses Typs enthält)
+    digUp(slot:int, [item:string])
+    digDown(slot:int, [item:string])
+    place(slit:int)
+    placeUp(slit:int)
+    placeDown(slit:int)
+
+    // Inventar-Zugriff
+    getItemName(slot:int)
+    getItemCount(slot:int)
+    drop(slot:int, [count:int]) // count ist 1 per default
+    dropUp(slot:int, [count:int])
+    dropDown(slot:int, [count:int])
+    suck(slot:int, [count:int])
+    suckUp(slot:int, [count:int])
+    suckDown(slot:int, [count:int])
+
+    // an eine Position bewegen (benötigt import der GPS-Bibliothek)
+    moveTo([x:int,y:int,z:int], direction:int) // direction ist die Richtung, in die die Turtle gucken soll
+    
+    direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
+    direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
+    direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
+    direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
+    direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
+    direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
+
+    // delay
+    sleep(seconds:int)
+
+    // fuel
+    getFuelLevel()
+
+    // shell
+    shell("pastebin","get","...")
+    
+    // user-input
+    x=input("text:")
+    
+    // Konvertierung von text in Zahl
+    tonumber(x)
+
+    // splitten eines Texts
+    x=splitText("1,2,3",",") // Ergebnis ist ["1","2","3"]
+    a,b,c=x // Auflösen des Arrays
+    
+}</code></pre>
+
+
+
+
+
