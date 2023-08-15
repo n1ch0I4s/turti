@@ -68,7 +68,8 @@ main: {
     };
 
     // Boolesche Operationen
-    x = y && true || a
+    x = y && true || a // && wird immer zuerst ausgeführt
+    x = y && (true || a) // Um || zuerst auszuführen sind Klammern nötig
 
     // Arithmetische Operationen
     x = y + 2 - 3
