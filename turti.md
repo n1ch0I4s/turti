@@ -178,10 +178,10 @@ function api.test(value)
 end
 
 return {
-  name = "testBibliothek", // name der Bibliothek
-  api = api // Funktions-Definition
+  name = "testBibliothek", -- name der Bibliothek
+  api = api -- Funktions-Definition
 }
-</code></pre>
+```
 
 Benutzt werden kann die Bibliothek folgendermaßen:
 <pre><code>#import: iT4NKZfx; // Bibliothek auf Pastebin
@@ -189,7 +189,7 @@ Benutzt werden kann die Bibliothek folgendermaßen:
 main:{
   test("Hu")
 }
-```
+</code></pre>
 Zugehörige Ausgabe auf der Konsole: <code>Hu</code> 
 
 ## Speichern von Daten in Bibliotheken
