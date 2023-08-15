@@ -63,7 +63,7 @@ main: {
     };
     
     // for
-    for (x=0; x<5; x=x+1) {
+    for (x=0; x<5; x++) {
         ...
     };
 
@@ -72,6 +72,10 @@ main: {
 
     // Arithmetische Operationen
     x = y + 2 - 3
+    x++
+    x--
+    ++x
+    ++y
 
     // Vergleiche
     x = y >= 3
@@ -266,4 +270,4 @@ return {
   end
 }
 ```
-Natürlich muss nicht zum Speichern jedes Werts eine Funktion angelegt werden, die Daten der storages können beliebig oft verändert werden. Nur sollte nach den Änderungen ein *save()* - / *persistentSave()* - Aufruf folgen.
+Natürlich muss nicht zum Speichern jedes Werts eine Funktion angelegt werden, die Daten der *storages* können beliebig oft verändert werden. Nur sollte nach den Änderungen ein *save()* - / *persistentSave()* - Aufruf folgen.
