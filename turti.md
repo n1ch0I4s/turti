@@ -68,23 +68,23 @@ main: {
     };
 
     // Boolesche Operationen
-    x = y && true || a // && wird immer zuerst ausgeführt
-    x = y && (true || a) // Um || zuerst auszuführen sind Klammern nötig
+    x = y && true || a; // && wird immer zuerst ausgeführt
+    x = y && (true || a); // Um || zuerst auszuführen sind Klammern nötig
 
     // Arithmetische Operationen
-    x = y + 2 - 3
-    x++
-    x--
-    ++x
-    ++y
+    x = y + 2 - 3;
+    x++;
+    x--;
+    ++x;
+    ++y;
 
     // Vergleiche
-    x = y >= 3
-    x = y <= 3
-    x = y == 3
-    x = y > 3
-    x = y < 3
-    x = y != 3
+    x = y >= 3;
+    x = y <= 3;
+    x = y == 3;
+    x = y > 3;
+    x = y < 3;
+    x = y != 3;
 
     // Arrays
     x = [1, null, 2, true, "ha"];
@@ -98,19 +98,19 @@ main: {
 
     // error (index out of bounds)
     arr[-1];
-    arr[5]
+    arr[5];
 
     // Globale Konstanten (verfügbar in allen Funktionen)
-    $TYPE$ = "hui"    
-    x = $TYPE$
+    $TYPE$ = "hui";
+    x = $TYPE$;
 
     // Funktionsaufruf
-    echo(1, 2, 3)
+    echo(1, 2, 3);
 }; // Semikolon auch nach Funktionen
 
 // Funktion
 echo(x,y,z): {
-    print(x + ", " + y + ", " + z)
+    print(x + ", " + y + ", " + z);
 };
 
 // wird vor 'main' ausgeführt, initialisiert Konstanten
@@ -125,36 +125,36 @@ Optionale argumente sind mit [] gekennzeichnet
 
 main: {
     // Print 
-    print("hu")
+    print("hu");
 
     // Bewegung (Blöcke und Entities auf dem Weg werden entfernt)
-    mvFwd([x:int]) 
-    mvBack([x:int])
-    mvUp([x:int])
-    mvDown([x:int])
-    left([x:int])
-    right([x:int])
+    mvFwd([x:int]); 
+    mvBack([x:int]);
+    mvUp([x:int]);
+    mvDown([x:int]);
+    left([x:int]);
+    right([x:int]);
     
     // Blöcke abbauen / platzieren
-    dig(slot:int, [item:string]) // item gibt das erwartete item an (wenn angegeben stellt die Turtle sicher, dass der Slot nur items dieses Typs enthält)
-    digUp(slot:int, [item:string])
-    digDown(slot:int, [item:string])
-    place(slit:int)
-    placeUp(slit:int)
-    placeDown(slit:int)
+    dig(slot:int, [item:string]); // item gibt das erwartete item an (wenn angegeben stellt die Turtle sicher, dass der Slot nur items dieses Typs enthält)
+    digUp(slot:int, [item:string]);
+    digDown(slot:int, [item:string]);
+    place(slit:int);
+    placeUp(slit:int);
+    placeDown(slit:int);
 
     // Inventar-Zugriff
-    getItemName(slot:int)
-    getItemCount(slot:int)
-    drop(slot:int, [count:int]) // count ist 1 per default
-    dropUp(slot:int, [count:int])
-    dropDown(slot:int, [count:int])
-    suck(slot:int, [count:int])
-    suckUp(slot:int, [count:int])
-    suckDown(slot:int, [count:int])
+    getItemName(slot:int);
+    getItemCount(slot:int);
+    drop(slot:int, [count:int]); // count ist 1 per default
+    dropUp(slot:int, [count:int]);
+    dropDown(slot:int, [count:int]);
+    suck(slot:int, [count:int]);
+    suckUp(slot:int, [count:int]);
+    suckDown(slot:int, [count:int]);
 
     // an eine Position bewegen (benötigt import der GPS-Bibliothek)
-    moveTo([x:int,y:int,z:int], direction:int) // direction ist die Richtung, in die die Turtle gucken soll
+    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle gucken soll
     
     direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
     direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
@@ -164,23 +164,23 @@ main: {
     direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
 
     // delay
-    sleep(seconds:int)
+    sleep(seconds:int);
 
     // fuel
-    getFuelLevel()
+    getFuelLevel();
 
     // shell
-    shell("pastebin","get","...")
+    shell("pastebin","get","...");
     
     // user-input
-    x = input("text:")
+    x = input("text:");
     
-    // Konvertierung von text in Zahl
-    tonumber(x)
+    // Konvertierung von Text in Zahl
+    tonumber(x);
 
     // splitten eines Texts
-    x = splitText("1,2,3", ",") // Ergebnis ist ["1","2","3"]
-    a, b, c = x // Auflösen des Arrays
+    x = splitText("1,2,3", ","); // Ergebnis ist ["1","2","3"]
+    a, b, c = x; // Auflösen des Arrays
 }</code></pre>
 
 # Turti-Bibliotheken
