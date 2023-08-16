@@ -115,20 +115,18 @@ echo(x,y,z): {
 
 // wird vor 'main' ausgeführt, initialisiert Konstanten
 init: {
-    $ID_COMPUTER$ = "..."
+    $ID_COMPUTER$ = "...";
 }</code></pre>
 
 ## Standard-Bibliothek
 
 Optionale argumente sind mit [] gekennzeichnet
-<pre><code>#import: iT4NKZfx; // importieren der GPS-Bibliothek
-
-main: {
+<pre><code>main: {
     // Print 
     print("hu");
 
     // Bewegung (Blöcke und Entities auf dem Weg werden entfernt)
-    mvFwd([x:int]); 
+    mvFwd([x:int]);
     mvBack([x:int]);
     mvUp([x:int]);
     mvDown([x:int]);
@@ -139,9 +137,9 @@ main: {
     dig(slot:int, [item:string]); // item gibt das erwartete item an (wenn angegeben stellt die Turtle sicher, dass der Slot nur items dieses Typs enthält)
     digUp(slot:int, [item:string]);
     digDown(slot:int, [item:string]);
-    place(slit:int);
-    placeUp(slit:int);
-    placeDown(slit:int);
+    place(slot:int);
+    placeUp(slot:int);
+    placeDown(slot:int);
 
     // Inventar-Zugriff
     getItemName(slot:int);
@@ -153,15 +151,12 @@ main: {
     suckUp(slot:int, [count:int]);
     suckDown(slot:int, [count:int]);
 
-    // an eine Position bewegen (benötigt import der GPS-Bibliothek)
-    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle gucken soll
-    
-    direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
-    direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
-    direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
-    direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
-    direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
-    direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
+    // direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
+    // direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
+    // direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
+    // direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
+    // direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
+    // direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
 
     // delay
     sleep(seconds:int);
@@ -175,13 +170,30 @@ main: {
     // user-input
     x = input("text:");
     
-    // Konvertierung von Text in Zahl
+    // Konvertierung von text in Zahl
     tonumber(x);
 
     // splitten eines Texts
     x = splitText("1,2,3", ","); // Ergebnis ist ["1","2","3"]
     a, b, c = x; // Auflösen des Arrays
 }</code></pre>
+
+# Smart GPS
+
+Die smartGPS-Bibliothek ermöglicht das navigieren zu einer Position mithilfe des A* Algorithmus.
+Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
+
+<pre><code>#import: iT4NKZfx; // importieren der GPS-Bibliothek
+
+main: {
+    // an eine Position bewegen (benötigt import der GPS-Bibliothek)
+    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle gucken soll
+
+    // einen Block ansehen (von einer beliebigen Seite)
+    faceToward([x:int,y:int,z:int]);
+}
+
+</code></pre>
 
 # Turti-Bibliotheken
 
