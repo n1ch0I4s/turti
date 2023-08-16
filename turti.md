@@ -192,7 +192,7 @@ Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
 
 main: {
     // an eine Position bewegen (benötigt import der GPS-Bibliothek)
-    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle gucken soll
+    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle sich ausrichten soll
 
     // einen Block ansehen (von einer beliebigen Seite)
     faceToward([x:int,y:int,z:int]);
