@@ -18,6 +18,9 @@ Beispiel installations-Command für das Programm [Holla](#holla):
 Wichtig: Das Programm muss nur **einmal installieren** und wird dann **bei jedem Neustart** von pastebin heruntergeladen
 und **ausgeführt**
 
+Um ein Programm von neuem zu Starten kann folgender Befehl verwendet werden:
+> turti restart
+
 # Turti
 
 ## Holla
