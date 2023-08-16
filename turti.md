@@ -215,6 +215,18 @@ main: {
 
 </code></pre>
 
+## Math
+
+<pre><code>#import: AAMw1hB3;
+
+main: {
+    min(1, 2, 3, 4);
+    max(5, 6);
+    abs(x);
+}
+
+</code></pre>
+
 ## Definition von Bibliotheken
 
 Die folgende Bibliothek definiert eine Funktion *test()*, die den übergebenen wert auf der Konsole ausgibt:
