@@ -226,6 +226,8 @@ main: {
 main: {
     min(1, 2, 3, 4);
     max(5, 6);
+    x, y = minMax(2, 6, 5, 3); // -> gibt [2, 6] zurück
+
     abs(x);
 }
 
@@ -234,16 +236,17 @@ main: {
 ## Definition von Bibliotheken
 
 Die folgende Bibliothek definiert eine Funktion *test()*, die den übergebenen wert auf der Konsole ausgibt:
+
 ```lua
 local api = {}
 
 function api.test(value)
-  print(value)
+    print(value)
 end
 
 return {
-  name = "testBibliothek", -- name der Bibliothek
-  api = api -- Funktions-Definition
+    name = "testBibliothek", -- name der Bibliothek
+    api = api -- Funktions-Definition
 }
 ```
 
@@ -254,41 +257,47 @@ main:{
   test("Hu")
 }
 </code></pre>
-Zugehörige Ausgabe auf der Konsole: <code>Hu</code> 
+Zugehörige Ausgabe auf der Konsole: <code>Hu</code>
 
 ## Speichern von Daten in Bibliotheken
-Daten, die außerhalb von Funktionen verwendet werden, dürfen in Turti-Bibliotheken *nicht* in globalen variablen gespeichert werden.
+
+Daten, die außerhalb von Funktionen verwendet werden, dürfen in Turti-Bibliotheken *nicht* in globalen variablen
+gespeichert werden.
 
 Stattdessen wird ein *storage*-Objekt verwendet:
+
 ```lua
 local api = {}
 local storage
 local save
 
 function api.setValue(value)
-  storage.value = value
-  save() -- Speichern der Daten des Storage (sollte nach Änderungen aufgerufen werden)
+    storage.value = value
+    save() -- Speichern der Daten des Storage (sollte nach Änderungen aufgerufen werden)
 end
 
 function api.getValue(value)
-  return storage.value
+    return storage.value
 end
 
 return {
-  name = "testBibliothek", -- name der Bibliothek
-  api = api, -- Funktions-Definition
-  onInitStorage = function(_storage, _save) -- Initialisieren des Storage
-    storage = _storage
-    save = _save
-  end
+    name = "testBibliothek", -- name der Bibliothek
+    api = api, -- Funktions-Definition
+    onInitStorage = function(_storage, _save)
+        -- Initialisieren des Storage
+        storage = _storage
+        save = _save
+    end
 }
 ```
 
-Die Daten bleiben während der Ausführung des Programms im Storage erhalten, auch wenn der Computer oder das Programm abstürzen sollte. Allerdings werden die Daten gelöscht, wenn das Programm erfolgreich endet.
+Die Daten bleiben während der Ausführung des Programms im Storage erhalten, auch wenn der Computer oder das Programm
+abstürzen sollte. Allerdings werden die Daten gelöscht, wenn das Programm erfolgreich endet.
 
 ## Speichern von Daten über mehrere Ausführungen des Programms hinaus
 
-Der *persistentStorage* speichert Daten permanent auf dem Computer / der Turtle und wird wie der normale Bibliotheks-*storage* verwendet:
+Der *persistentStorage* speichert Daten permanent auf dem Computer / der Turtle und wird wie der normale Bibliotheks-
+*storage* verwendet:
 
 ```lua
 local api = {}
@@ -299,35 +308,39 @@ local persistentSave
 
 -- Wert innerhalb der Laufzeit speichern
 function api.setValue(value)
-  storage.value = value
-  save()
+    storage.value = value
+    save()
 end
 
 function api.getValue(value)
-  return storage.value
+    return storage.value
 end
 
 -- Wert permanent speichern
 function api.setValuePersistent(value)
-  persistentStorage.value = value
-  persistentSave()
+    persistentStorage.value = value
+    persistentSave()
 end
 
 function api.getValuePersistent(value)
-  return persistentStorage.value
+    return persistentStorage.value
 end
 
 return {
-  name = "testBibliothek", -- name der Bibliothek
-  api = api, -- Funktions-Definition
-  onInitStorage = function(_storage, _save) -- Initialisieren des Storage
-    storage = _storage
-    save = _save
-  end,
-  onInitPersistentStorage = function(_pStorage, _pSave) -- Initialisieren des persistent Storage
-    persistentStorage = _pStorage
-    persistentSave = _pSave
-  end
+    name = "testBibliothek", -- name der Bibliothek
+    api = api, -- Funktions-Definition
+    onInitStorage = function(_storage, _save)
+        -- Initialisieren des Storage
+        storage = _storage
+        save = _save
+    end,
+    onInitPersistentStorage = function(_pStorage, _pSave)
+        -- Initialisieren des persistent Storage
+        persistentStorage = _pStorage
+        persistentSave = _pSave
+    end
 }
 ```
-Natürlich muss nicht zum Speichern jedes Werts eine Funktion angelegt werden, die Daten der *storages* können beliebig oft verändert werden. Nur sollte nach den Änderungen ein *save()* - / *persistentSave()* - Aufruf folgen.
+
+Natürlich muss nicht zum Speichern jedes Werts eine Funktion angelegt werden, die Daten der *storages* können beliebig
+oft verändert werden. Nur sollte nach den Änderungen ein *save()* - / *persistentSave()* - Aufruf folgen.
