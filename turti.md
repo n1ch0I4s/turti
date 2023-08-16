@@ -193,13 +193,17 @@ main: {
     // einen Block ansehen (von einer beliebigen Seite)
     faceToward([x:int,y:int,z:int]);
 
+    // einen Block der Liste ansehen (von einer beliebigen Seite)
+    // Gibt den Index des angesehenen Blocks zurück (0..n-1)
+    faceTowardAny([x1:int,y1:int,z1:int], [x2,y2,z2], ...);
+
     // Position ermitteln
     locate();
   
     // Ausrichtung ermitteln
     getDirection();
 
-    // Ausrichtung setzen
+    // Ausrichtung setzen (die turtle dreht sich entsprechend)
     setDirection(0);
 
     // Position eines Blocks in bestimmter Richtung
