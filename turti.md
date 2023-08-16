@@ -86,6 +86,20 @@ main: {
     x = y < 3
     x = y != 3
 
+    // Arrays
+    x = [1, null, 2, true, "ha"];
+    x[2]; // 2
+    x[2] = 3; // x: [1, null, 3, true, "ha"]
+
+    // Länge über .length
+    for(i = 0; i < arr.length; i++){
+        print(arr[i]);
+    };
+
+    // error (index out of bounds)
+    arr[-1];
+    arr[5]
+
     // Globale Konstanten (verfügbar in allen Funktionen)
     $TYPE$ = "hui"    
     x = $TYPE$
