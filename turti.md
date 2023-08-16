@@ -151,13 +151,6 @@ Optionale argumente sind mit [] gekennzeichnet
     suckUp(slot:int, [count:int]);
     suckDown(slot:int, [count:int]);
 
-    // direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
-    // direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
-    // direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
-    // direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
-    // direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
-    // direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
-
     // delay
     sleep(seconds:int);
 
@@ -196,6 +189,22 @@ main: {
 
     // einen Block ansehen (von einer beliebigen Seite)
     faceToward([x:int,y:int,z:int]);
+
+    // Position ermitteln
+    locate();
+  
+    // Ausrichtung ermitteln
+    getDirection();
+
+    // Ausrichtung setzen
+    setDirection(0);
+  
+    // direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
+    // direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
+    // direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
+    // direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
+    // direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
+    // direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
 }
 
 </code></pre>
