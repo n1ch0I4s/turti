@@ -198,6 +198,9 @@ main: {
 
     // Ausrichtung setzen
     setDirection(0);
+
+    // Position eines Blocks in bestimmter Richtung
+    getPosInDirection([0,0,0],0); // gibt [1,0,0] zurück
   
     // direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
     // direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
