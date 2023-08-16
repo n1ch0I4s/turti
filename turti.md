@@ -178,7 +178,12 @@ Optionale argumente sind mit [] gekennzeichnet
     a, b, c = x; // Auflösen des Arrays
 }</code></pre>
 
-# Smart GPS
+# Turti-Bibliotheken
+
+Turti-Bibliotheken erweitern die Sprache um eine Menge an Funktionen.
+Zum Beispiel fügt die *smartGPS*-Bibliothek (iT4NKZfx) die Funktion *moveTo(...)* hinzu.
+
+## Smart GPS
 
 Die smartGPS-Bibliothek ermöglicht das navigieren zu einer Position mithilfe des A* Algorithmus.
 Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
@@ -195,10 +200,7 @@ main: {
 
 </code></pre>
 
-# Turti-Bibliotheken
-
-Turti-Bibliotheken erweitern die Sprache um eine Menge an Funktionen.
-Zum Beispiel fügt die *smartGPS*-Bibliothek (iT4NKZfx) die Funktion *moveTo(...)* hinzu.
+## Definition von Bibliotheken
 
 Die folgende Bibliothek definiert eine Funktion *test()*, die den übergebenen wert auf der Konsole ausgibt:
 ```lua
