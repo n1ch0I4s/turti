@@ -134,9 +134,9 @@ Optionale argumente sind mit [] gekennzeichnet
     right([x:int]);
     
     // Blöcke abbauen / platzieren
-    dig(slot:int, [item:string]); // item gibt das erwartete item an (wenn angegeben stellt die Turtle sicher, dass der Slot nur items dieses Typs enthält)
-    digUp(slot:int, [item:string]);
-    digDown(slot:int, [item:string]);
+    dig([slot:int], [item:string]); // item gibt das erwartete item an (wenn angegeben stellt die Turtle sicher, dass der Slot nur items dieses Typs enthält)
+    digUp([slot:int], [item:string]);
+    digDown([slot:int,] [item:string]);
     place(slot:int);
     placeUp(slot:int);
     placeDown(slot:int);
@@ -147,15 +147,18 @@ Optionale argumente sind mit [] gekennzeichnet
     drop(slot:int, [count:int]); // count ist 1 per default
     dropUp(slot:int, [count:int]);
     dropDown(slot:int, [count:int]);
-    suck(slot:int, [count:int]);
-    suckUp(slot:int, [count:int]);
-    suckDown(slot:int, [count:int]);
+    suck([slot:int], [count:int]);
+    suckUp([slot:int], [count:int]);
+    suckDown([slot:int], [count:int]);
 
     // delay
     sleep(seconds:int);
 
     // fuel
     getFuelLevel();
+
+    // refuel
+    refuel();
 
     // shell
     shell("pastebin","get","...");
