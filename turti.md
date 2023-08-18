@@ -153,14 +153,14 @@ Optionale argumente sind mit [] gekennzeichnet
     suck([slot:int], [count:int]);
     suckUp([slot:int], [count:int]);
     suckDown([slot:int], [count:int]);
+    equipRight([slot:int]);
+    equipLeft([slot:int]);
 
     // delay
     sleep(seconds:int);
 
     // fuel
     getFuelLevel();
-
-    // refuel
     refuel();
 
     // shell
