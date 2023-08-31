@@ -108,8 +108,6 @@ main: {
     x.remove("1"); // null, x={1=true, "v"=5}
     x.remove(1); // null,  x={1=true}
 
-    
-
     // Globale Konstanten (verfügbar in allen Funktionen)
     $TYPE$ = "hui";
     x = $TYPE$;
@@ -162,6 +160,9 @@ Optionale argumente sind mit [] gekennzeichnet
     suckDown([slot:int], [count:int]);
     equipRight([slot:int]);
     equipLeft([slot:int]);
+
+    // Gibt den Namen, des Blocks vor der Turtle oder null zurück
+    inspectName();
 
     // delay
     sleep(seconds:int);
