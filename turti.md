@@ -232,7 +232,9 @@ main: {
   // den letzten Slot für Item-Switching definieren (muss eines der Items enthalten, das andere muss ausgerüstet sein)
   configureItemSwitch(15, "left");
   // optional können item-ids übergeben werden:
-  configureItemSwitch(15, "left", );
+  configureItemSwitch(15, "left", 
+      "minecraft:diamond_pickaxe",
+      "computercraft:wireless_modem_advanced");
 
   // Modem wird für gps-Befehle ausgerüstet
   locate();
