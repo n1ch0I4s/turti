@@ -222,6 +222,28 @@ main: {
 
 </code></pre>
 
+## Toggle Item
+
+Die toggleItem-Bibliothek wechselt je nach Bedarf Spitzhacke und Ender Modem.
+
+<pre><code>#import: mWBVHmn0;
+
+main: {
+  // den letzten Slot für Item-Switching definieren (muss eines der Items enthalten, das andere muss ausgerüstet sein)
+  configureItemSwitch(15, "left");
+  // optional können item-ids übergeben werden:
+  configureItemSwitch(15, "left", );
+
+  // Modem wird für gps-Befehle ausgerüstet
+  locate();
+
+  // Spitzhacke wird für dig-Befehle ausgerüstet
+  dig();
+  
+}
+
+</code></pre>
+
 ## Math
 
 <pre><code>#import: AAMw1hB3;
