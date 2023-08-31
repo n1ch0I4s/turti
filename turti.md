@@ -231,6 +231,7 @@ Die toggleItem-Bibliothek wechselt je nach Bedarf Spitzhacke und Ender Modem.
 main: {
   // den letzten Slot für Item-Switching definieren (muss eines der Items enthalten, das andere muss ausgerüstet sein)
   configureItemSwitch(15, "left");
+
   // optional können item-ids übergeben werden:
   configureItemSwitch(15, "left", 
       "minecraft:diamond_pickaxe",
