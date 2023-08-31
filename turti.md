@@ -91,17 +91,24 @@ main: {
 
     // Arrays
     x = [1, null, 2, true, "ha"];
-    x[2]; // 2
+    x[2]; // null
+    x.length; // 5
     x[2] = 3; // x: [1, null, 3, true, "ha"]
-
-    // Länge über .length
-    for(i = 0; i < arr.length; i++){
-        print(arr[i]);
-    };
-
+    x.add(1); // x: [1, null, 3, true, "ha", 1]
+    x.remove(1); // x: [null, 3, true, "ha", 1]
+    x.removeAt(1); // x: [null, true, "ha", 1]
+    
     // error (index out of bounds)
     arr[-1];
     arr[5];
+
+    // Tables
+    x = {1=true, "v"=5};
+    x["v"]; // 5
+    x.remove("1"); // null, x={1=true, "v"=5}
+    x.remove(1); // null,  x={1=true}
+
+    
 
     // Globale Konstanten (verfügbar in allen Funktionen)
     $TYPE$ = "hui";
