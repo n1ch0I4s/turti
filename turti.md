@@ -88,6 +88,7 @@ main: {
     x = y > 3;
     x = y < 3;
     x = y != 3;
+    x = y % 3;
 
     // Arrays
     x = [1, null, 2, true, "ha"];
