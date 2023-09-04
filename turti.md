@@ -163,6 +163,8 @@ Optionale argumente sind mit [] gekennzeichnet
 
     // Gibt den Namen, des Blocks vor der Turtle oder null zurück
     inspectName();
+    inspectNameUp();
+    inspectNameDown();
 
     // delay
     sleep(seconds:int);
@@ -244,13 +246,6 @@ main: {
   configureItemSwitch(15, "left", 
       "minecraft:diamond_pickaxe",
       "computercraft:wireless_modem_advanced");
-
-  // Modem wird für gps-Befehle ausgerüstet
-  locate();
-
-  // Spitzhacke wird für dig-Befehle ausgerüstet
-  dig();
-  
 }
 
 </code></pre>
