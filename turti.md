@@ -131,9 +131,9 @@ echo(x,y,z): {
 // Funktion mit Rückgabewert
 min(x,y):{
   if (x < y){
-    return x;
+    return(x);
   }
-  return y;
+  return(y);
 }
 
 // wird vor 'main' ausgeführt, initialisiert Konstanten
