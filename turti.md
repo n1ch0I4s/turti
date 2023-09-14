@@ -62,7 +62,13 @@ main: {
 
     // while
     while (true) {
-        ...    
+        ...
+        if (...) {
+            break;
+        } else if (...) {
+            continue;
+        }
+        ...
     };
     
     // for
@@ -122,10 +128,38 @@ echo(x,y,z): {
     print(x + ", " + y + ", " + z);
 };
 
+// Funktion mit Rückgabewert
+min(x,y):{
+  if (x < y){
+    return x;
+  }
+  return y;
+}
+
 // wird vor 'main' ausgeführt, initialisiert Konstanten
 init: {
     $ID_COMPUTER$ = "...";
 }</code></pre>
+
+## Nicht kritische Blöcke
+
+Standardmäßig wird der Zustand der Turtle bei jedem kritischen Funktionsaufruf gespeichert (Bewegen, Zugriff auf Inventar, etc.)
+Um das speichern zu vermeiden, kann ein Codeblock folgendermaßen markiert werden:
+
+<pre><code>
+main: {
+  
+  // Nicht kritischer Code
+  #{
+    for(i=0;i<5;i++){
+      print(i);
+    }
+  }
+
+}
+</code></pre>
+Der Code wird dann als Ganzes neu ausgeführt. Dieser Syntax darf nur für nicht kritische Sektionen verwendet werden, bei denen eine erneute Ausführung
+keinen Einfluss auf die Position, Orientierung oder das Inventar der Turtle hat.
 
 ## Standard-Bibliothek
 
