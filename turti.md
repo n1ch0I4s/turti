@@ -231,7 +231,7 @@ Zum Beispiel fügt die *smartGPS*-Bibliothek (iT4NKZfx) die Funktion *moveTo(...
 Die smartGPS-Bibliothek ermöglicht das navigieren zu einer Position mithilfe des A* Algorithmus.
 Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
 
-<pre><code>#import: iT4NKZfx; // importieren der GPS-Bibliothek
+<pre><code>#import: iT4NKZfx; // Importieren der GPS-Bibliothek
 
 main: {
     // an eine Position bewegen (benötigt import der GPS-Bibliothek)
@@ -284,6 +284,19 @@ main: {
 
 </code></pre>
 
+## Database
+
+Zum dauerhaften Speichern von Daten.
+
+<pre><code>#import: A60Ncqat; // Import der Datenbank-Bibliothek
+
+main:{
+  saveValue("hu",{1, 2, 3});
+  loadValue("hu"); // {1, 2, 3};
+}
+
+</code></pre>
+
 ## Math
 
 <pre><code>#import: AAMw1hB3;
@@ -300,7 +313,7 @@ main: {
 
 ## Definition von Bibliotheken
 
-Die folgende Bibliothek definiert eine Funktion *test()*, die den übergebenen wert auf der Konsole ausgibt:
+Die folgende Bibliothek definiert eine Funktion *test()*, die den übergebenen Wert auf der Konsole ausgibt:
 
 ```lua
 local api = {}
