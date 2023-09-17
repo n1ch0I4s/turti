@@ -268,6 +268,7 @@ main: {
 ## Network
 
 Ermöglicht die High-Level Kommunikation zwischen Computern. Ein Computer kann beliebig viele Server hosten.
+Server laufen im Hintergrund, das Programm wird normal fortgesetzt.
 Clients rufen Funktionen auf diesen Servern auf.
 
 Server:
