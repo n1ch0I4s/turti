@@ -226,7 +226,43 @@ Optionale argumente sind mit [] gekennzeichnet
 Turti-Bibliotheken erweitern die Sprache um eine Menge an Funktionen.
 Zum Beispiel fügt die *smartGPS*-Bibliothek (iT4NKZfx) die Funktion *moveTo(...)* hinzu.
 
+## Light GPS
+
+Die lightGPS-Bibliothek ermöglicht das navigieren zu einer Position mithilfe des A* Algorithmus.
+Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
+
+<pre><code>#import: NK0bGHwZ; // Importieren der GPS-Bibliothek
+
+main: {
+    // an eine Position bewegen (benötigt import der GPS-Bibliothek)
+    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle sich ausrichten soll
+
+    // Position ermitteln
+    locate();
+  
+    // Ausrichtung ermitteln
+    getDirection();
+
+    // Ausrichtung setzen (die turtle dreht sich entsprechend)
+    setDirection(0);
+
+    // Position eines Blocks in bestimmter Richtung
+    getPosInDirection([0,0,0],0); // gibt [1,0,0] zurück
+    getPosInDirection([0,0,0],4, 3); // gibt [0,3,0] zurück
+  
+    // direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
+    // direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
+    // direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
+    // direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
+    // direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
+    // direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
+}
+
+</code></pre>
+
 ## Smart GPS
+
+Deprecated!
 
 Die smartGPS-Bibliothek ermöglicht das navigieren zu einer Position mithilfe des A* Algorithmus.
 Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
