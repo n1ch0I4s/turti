@@ -265,50 +265,49 @@ main: {
 
 </code></pre>
 
-## Smart GPS
+## Network
 
-Deprecated!
+Ermöglicht die High-Level Kommunikation zwischen Computern. Ein Computer kann beliebig viele Server hosten.
+Clients rufen Funktionen auf diesen Servern auf.
 
-Die smartGPS-Bibliothek ermöglicht das navigieren zu einer Position mithilfe des A* Algorithmus.
-Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
+Server:
+<pre><code>#import: 3R4kDTdb; // network
 
-<pre><code>#import: iT4NKZfx; // Importieren der GPS-Bibliothek
+compare(value): {
+    if (value < 5) {
+        return("small value");
+    };
+    return("large value");
+};
 
 main: {
-    // an eine Position bewegen (benötigt import der GPS-Bibliothek)
-    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle sich ausrichten soll
+    server = NetworkServer("compareValue"); // 'compareValue' ist der Server-Name, muss unique sein
+    server.register(@compare); // Die Funktion registrieren
+    
+    // Der Server läuft nur so lange wie das Turti-Programm
+    // Hat das Programm keine weiteren Aufgaben, kann ein Warte-Loop verwendet werden: 
+    while(true) {
+      sleep(1);
+    };
+}
+</code></pre>
 
-    // einen Block ansehen (von einer beliebigen Seite)
-    faceToward([x:int,y:int,z:int]);
+Client:
+<pre><code>#import: 3R4kDTdb; // network
 
-    // einen Block der Liste ansehen (von einer beliebigen Seite)
-    // Gibt den Index des angesehenen Blocks zurück (0..n-1)
-    faceTowardAny([x1:int,y1:int,z1:int], [x2,y2,z2], ...);
+main: {
+    client = NetworkClient("compareValue"); // Client für einen "compareValue"-Server
 
-    // Position ermitteln
-    locate();
-  
-    // Ausrichtung ermitteln
-    getDirection();
+    // Eine Funktion auf dem Server aufrufen
+    // Ist kein Server nicht erreichbar wird solange gewartet, bis ein Server online kommt
+    result = client.call("compare", 7); // result = "large value", sobald ein Server antwortet
 
-    // Ausrichtung setzen (die turtle dreht sich entsprechend)
-    setDirection(0);
-
-    // Position eines Blocks in bestimmter Richtung
-    getPosInDirection([0,0,0],0); // gibt [1,0,0] zurück
-  
-    // direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
-    // direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
-    // direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
-    // direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
-    // direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
-    // direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
 }
 
 </code></pre>
 
 ## Toggle Item
-
+~~
 Die toggleItem-Bibliothek wechselt je nach Bedarf Spitzhacke und Ender Modem.
 
 <pre><code>#import: mWBVHmn0;
@@ -352,7 +351,47 @@ main: {
 
 </code></pre>
 
-## Definition von Bibliotheken
+## Smart GPS - Deprecated!
+
+Die smartGPS-Bibliothek ermöglicht das navigieren zu einer Position mithilfe des A* Algorithmus.
+Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
+
+<pre><code>#import: iT4NKZfx; // Importieren der GPS-Bibliothek
+
+main: {
+    // an eine Position bewegen (benötigt import der GPS-Bibliothek)
+    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle sich ausrichten soll
+
+    // einen Block ansehen (von einer beliebigen Seite)
+    faceToward([x:int,y:int,z:int]);
+
+    // einen Block der Liste ansehen (von einer beliebigen Seite)
+    // Gibt den Index des angesehenen Blocks zurück (0..n-1)
+    faceTowardAny([x1:int,y1:int,z1:int], [x2,y2,z2], ...);
+
+    // Position ermitteln
+    locate();
+  
+    // Ausrichtung ermitteln
+    getDirection();
+
+    // Ausrichtung setzen (die turtle dreht sich entsprechend)
+    setDirection(0);
+
+    // Position eines Blocks in bestimmter Richtung
+    getPosInDirection([0,0,0],0); // gibt [1,0,0] zurück
+  
+    // direction=0 -> positive x-Richtung (1. Minecraft-Koordinate)
+    // direction=1 -> positive z-Richtung (3. Minecraft-Koordinate)
+    // direction=2 -> negative x-Richtung (1. Minecraft-Koordinate)
+    // direction=3 -> negative z-Richtung (3. Minecraft-Koordinate)
+    // direction=4 -> positive y-Richtung (2. Minecraft-Koordinate)
+    // direction=5 -> negative y-Richtung (2. Minecraft-Koordinate)
+}
+
+</code></pre>
+
+# Definition von Bibliotheken
 
 Die folgende Bibliothek definiert eine Funktion *test()*, die den übergebenen Wert auf der Konsole ausgibt:
 
