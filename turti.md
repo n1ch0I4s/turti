@@ -163,6 +163,8 @@ keinen Einfluss auf die Position, Orientierung oder das Inventar der Turtle hat.
 ## Standard-Bibliothek
 
 Optionale argumente sind mit [] gekennzeichnet
+
+Farben für printf sind [hier](https://tweaked.cc/module/colors.html) aufgelistet
 <pre><code>main: {
     // Print 
     print("hu", 1); // Hu 1
