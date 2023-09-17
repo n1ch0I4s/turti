@@ -441,6 +441,16 @@ function api.getValuePersistent(value)
     return persistentStorage.value
 end
 
+function api.returnTable()
+  -- Tables müssen beim Zurückgeben gecastet werden
+  return toTurtiTable({t=1, b=2})
+end
+
+function api.returnArray()
+  -- Arrays müssen beim Zurückgeben gecastet werden
+  return toTurtiArray({1, 2, 3})
+end
+
 return {
     name = "testBibliothek", -- name der Bibliothek
     api = api, -- Funktions-Definition
