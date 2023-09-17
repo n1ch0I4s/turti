@@ -299,7 +299,7 @@ main: {
     client = NetworkClient("compareValue"); // Client für einen "compareValue"-Server
 
     // Eine Funktion auf dem Server aufrufen
-    // Ist kein Server nicht erreichbar wird solange gewartet, bis ein Server online kommt
+    // Ist kein Server erreichbar wird solange gewartet, bis ein Server online kommt
     result = client.call("compare", 7); // result = "large value", sobald ein Server antwortet
 
 }
