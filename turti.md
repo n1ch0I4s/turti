@@ -165,7 +165,9 @@ keinen Einfluss auf die Position, Orientierung oder das Inventar der Turtle hat.
 Optionale argumente sind mit [] gekennzeichnet
 <pre><code>main: {
     // Print 
-    print("hu");
+    print("hu", 1); // Hu 1
+    // Prinf
+    printf("&lt;c:yellow&gt;Gelber Text!&lt;/c&gt;")
 
     // Bewegung (Blöcke und Entities auf dem Weg werden entfernt)
     mvFwd([x:int]);
@@ -442,7 +444,7 @@ function api.getValuePersistent(value)
 end
 
 function api.returnTable()
-  -- Tables müssen beim Zurückgeben gecastet werden
+  -- Tables müssen beim Zurückgeben gecastet werdene
   return toTurtiTable({t=1, b=2})
 end
 
