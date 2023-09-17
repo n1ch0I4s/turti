@@ -235,7 +235,8 @@ Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
 
 main: {
     // an eine Position bewegen (benötigt import der GPS-Bibliothek)
-    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle sich ausrichten soll
+    moveTo([x:int,y:int,z:int]);
+    moveTo([x:int,y:int,z:int], direction); // direction ist die Richtung, in die die Turtle sich ausrichten soll (optional)
 
     // Position ermitteln
     locate();
