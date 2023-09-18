@@ -160,6 +160,64 @@ Um das speichern zu vermeiden, kann ein Codeblock folgendermaßen markiert werde
 Der Code wird dann als Ganzes neu ausgeführt, sollte die Turtle neu starten. Dieser Syntax darf nur für nicht kritische Sektionen verwendet werden, bei denen eine erneute Ausführung
 keinen Einfluss auf die Position, Orientierung oder das Inventar der Turtle hat.
 
+## Multithreading
+
+Turti unterstützt multithreading, es gibt jedoch keine Synchronisationsmöglichkeiten. 
+Die Kommunikation von verschiedenen Threads ist deshalb mit Vorsicht vorzunehmen.
+
+<pre><code>// gibt den übergebenen Wert unendlich oft aus
+printInfinite(value): {
+    thread = getThread();
+    for(i = 0; true; i++){
+        print(i + ": " + value + " (" + thread.name + ", " +thread.isDaemon + ")");
+        sleep(1);
+    };
+};
+
+main: {
+    startDaemonThread(@printInfinite, "ha");
+    printInfinite("hu");
+};</code></pre>
+
+Gibt aus:
+<pre><code>0: hu (main, false)
+0: ha (hook@printInfinite, true)
+1: hu (main, false)
+1: ha (hook@printInfinite, true)
+2: hu (main, false)
+2: ha (hook@printInfinite, true)
+3: hu (main, false)
+...
+</code></pre>
+
+### Daemon Threads
+
+Threads können als Daemon-Threads gekennzeichnet werden.
+Das Programm läuft so lange, bis alle nicht-Daemon Threads beendet sind.
+
+Folgender Code terminiert dementsprechend nach 5 Sekunden:
+<pre><code>// gibt den übergebenen Wert unendlich oft aus
+printInfinite(value):{
+    thread = getThread();
+    for(i = 0; true; i++){
+        print(i + ": " + value + " (" + thread.name + ", " +thread.isDaemon + ")");
+        sleep(1);
+    };
+};
+
+main: {
+    startDaemonThread(@printInfinite, "ha"); // Daemon thread
+    sleep(5);
+}
+</code></pre>
+
+Gibt aus:
+<pre><code>0: ha (hook@printInfinite, true) // true, da daemon thread
+1: ha (hook@printInfinite, true)
+2: ha (hook@printInfinite, true)
+3: ha (hook@printInfinite, true)
+</code></pre>
+
 ## Standard-Bibliothek
 
 Optionale argumente sind mit [] gekennzeichnet
