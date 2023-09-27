@@ -300,6 +300,9 @@ main: {
     moveTo([x:int,y:int,z:int]);
     moveTo([x:int,y:int,z:int], direction); // direction ist die Richtung, in die die Turtle sich ausrichten soll (optional)
 
+    // einen Block ansehen (von einer beliebigen Seite)
+    faceToward([x:int,y:int,z:int]);
+
     // Position ermitteln
     locate();
   
@@ -341,7 +344,8 @@ compare(value): {
 
 main: {
     server = NetworkServer("compareValue"); // 'compareValue' ist der Server-Name, muss unique sein
-    server.register(@compare); // Die Funktion registrieren
+    server.register(@compare); // Die Funktion unter dem Namen "compare" registrieren
+    server.register(@compare, "compareTo5"); // Die Funktion unter dem Namen "compareTo5" registrieren
     
     // Der Server läuft nur so lange wie das Turti-Programm
     // Hat das Programm keine weiteren Aufgaben, kann ein Warte-Loop verwendet werden: 
