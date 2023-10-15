@@ -175,7 +175,7 @@ printInfinite(value): {
 };
 
 main: {
-    startDaemonThread(@printInfinite, "ha");
+    startThread(@printInfinite, "ha");
     printInfinite("hu");
 };</code></pre>
 
@@ -216,6 +216,22 @@ Gibt aus:
 1: ha (hook@printInfinite, true)
 2: ha (hook@printInfinite, true)
 3: ha (hook@printInfinite, true)
+</code></pre>
+
+### Synchronisation (exclusive)
+
+Exklusive-Blöcke werden am Stück von einem Thread ausgeführt.
+(ohne die Gefahr der Unterbrechung durch einen anderen Thread).
+(Verhindert insbesondere das Bewegen der Turtle, das Austauschen von Items und read/write Probleme)
+
+<pre><code>print5:{
+  exclusive{
+    print(5);
+  };
+}
+main:{
+  startThread(@print5);
+}
 </code></pre>
 
 ## Standard-Bibliothek
@@ -298,10 +314,13 @@ Die Turtle merkt sich dabei auch ein Stück weit ihre Umgebung.
 main: {
     // an eine Position bewegen (benötigt import der GPS-Bibliothek)
     moveTo([x:int,y:int,z:int]);
-    moveTo([x:int,y:int,z:int], direction); // direction ist die Richtung, in die die Turtle sich ausrichten soll (optional)
+    moveTo([x:int,y:int,z:int], direction:int); // direction ist die Richtung, in die die Turtle sich ausrichten soll (optional)
+
+    // zu einem Ort graben (gefährlich!)
+    moveToRuthless([x:int,y:int,z:int]
 
     // einen Block ansehen (von einer beliebigen Seite)
-    faceToward([x:int,y:int,z:int]);
+    faceToward([x:int,y:int,z:int], direction:int);
 
     // Position ermitteln
     locate();
@@ -409,7 +428,8 @@ main: {
     max(5, 6);
     x, y = minMax(2, 6, 5, 3); // -> gibt [2, 6] zurück
 
-    abs(x);
+    abs(x); -> |x|
+    floor(x); -> (int)x
 }
 
 </code></pre>
