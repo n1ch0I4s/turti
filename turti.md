@@ -162,8 +162,8 @@ keinen Einfluss auf die Position, Orientierung oder das Inventar der Turtle hat.
 
 ## Multithreading
 
-Turti unterstützt multithreading, es gibt jedoch keine Synchronisationsmöglichkeiten. 
-Die Kommunikation von verschiedenen Threads ist deshalb mit Vorsicht vorzunehmen.
+Turti unterstützt multithreading.
+Grundsätzlich sollten kritische Aktionen (wie das Verwenden von ausgerüsteten Items) immer in exclusive-Blöcke verpackt werden (siehe unten).
 
 <pre><code>// gibt den übergebenen Wert unendlich oft aus
 printInfinite(value): {
