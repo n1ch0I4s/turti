@@ -20,6 +20,10 @@ und **ausgeführt**
 
 Um ein Programm von neuem zu Starten kann folgender Befehl verwendet werden:
 > turti restart
+ 
+## Program nach Fehlern automatisch neu starten
+
+> pastebin run FauBfvYe svdv6kJJ restartOnError
 
 # Turti
 
@@ -116,8 +120,8 @@ main: {
     x.remove(1); // null,  x={1=true}
 
     // Globale Konstanten (verfügbar in allen Funktionen)
-    $TYPE$ = "hui";
-    x = $TYPE$;
+    $TYPE = "hui";
+    x = $TYPE;
 
     // Funktionsaufruf
     echo(1, 2, 3);
@@ -428,6 +432,7 @@ main: {
     max(5, 6);
     x, y = minMax(2, 6, 5, 3); // -> gibt [2, 6] zurück
 
+    sqrt(5);
     abs(x); -> |x|
     floor(x); -> (int)x
 }
@@ -568,7 +573,7 @@ function api.getValuePersistent(value)
 end
 
 function api.returnTable()
-  -- Tables müssen beim Zurückgeben gecastet werdene
+  -- Tables müssen beim Zurückgeben gecastet werden
   return toTurtiTable({t=1, b=2})
 end
 
